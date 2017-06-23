@@ -16,27 +16,27 @@ get_header(); ?>
 					<div class="page-header">
 					<?php if ( is_category() ) { ?>
 						<h1 class="archive_title h2">
-							<span><?php esc_html_e( "Posts Categorized:", 'wpbootstrap' ); ?></span> <?php single_cat_title(); ?>
+							<span><?php esc_html_e( 'Posts Categorized:', 'wpbootstrap' ); ?></span> <?php single_cat_title(); ?>
 						</h1>
 					<?php } elseif ( is_tag() ) { ?> 
 						<h1 class="archive_title h2">
-							<span><?php esc_html_e( "Posts Tagged:", 'wpbootstrap' ); ?></span> <?php single_tag_title(); ?>
+							<span><?php esc_html_e( 'Posts Tagged:', 'wpbootstrap' ); ?></span> <?php single_tag_title(); ?>
 						</h1>
 					<?php } elseif ( is_author() ) { ?>
 						<h1 class="archive_title h2">
-							<span><?php esc_html_e( "Posts By:", 'wpbootstrap' ); ?></span> <?php get_the_author_meta('display_name'); ?>
+							<span><?php esc_html_e( 'Posts By:', 'wpbootstrap' ); ?></span> <?php get_the_author_meta('display_name'); ?>
 						</h1>
 					<?php } elseif ( is_day() ) { ?>
 						<h1 class="archive_title h2">
-							<span><?php esc_html_e( "Daily Archives:", 'wpbootstrap' ); ?></span> <?php the_time('l, F j, Y'); ?>
+							<span><?php esc_html_e( 'Daily Archives:', 'wpbootstrap' ); ?></span> <?php the_time('l, F j, Y'); ?>
 						</h1>
 					<?php } elseif ( is_month() ) { ?>
-					    <h1 class="archive_title h2">
-					    	<span><?php esc_html_e( "Monthly Archives:", 'wpbootstrap' ); ?></span> <?php the_time('F Y'); ?>
-					    </h1>
+						<h1 class="archive_title h2">
+							<span><?php esc_html_e( 'Monthly Archives:', 'wpbootstrap' ); ?></span> <?php the_time('F Y'); ?>
+						</h1>
 					<?php } elseif ( is_year() ) { ?>
-					    <h1 class="archive_title h2">
-					    	<span><?php esc_html_e( "Yearly Archives:", 'wpbootstrap' ); ?></span> <?php the_time('Y'); ?>
+						<h1 class="archive_title h2">
+							<span><?php esc_html_e( 'Yearly Archives:', 'wpbootstrap' ); ?></span> <?php the_time('Y'); ?>
 					    </h1>
 					<?php } ?>
 					</div>
@@ -69,11 +69,11 @@ get_header(); ?>
 					
 					<?php endwhile; ?>	
 					
-					<?php if (function_exists('wp_bootstrap_page_navi')) { // if expirimental feature is active ?>
+					<?php if (function_exists('wp_bootstrap_page_navi')) { // if expirimental feature is active. ?>
 						
-						<?php wp_bootstrap_page_navi(); // use the page navi function ?>
+						<?php wp_bootstrap_page_navi(); // use the page navi function. ?>
 
-					<?php } else { // if it is disabled, display regular wp prev & next links ?>
+					<?php } else { // if it is disabled, display regular wp prev & next links. ?>
 						<nav class="wp-prev-next">
 							<ul class="pager">
 								<li class="previous"><?php next_posts_link(_e('&laquo; Older Entries', 'wpbootstrap' )) ?></li>
@@ -86,20 +86,20 @@ get_header(); ?>
 					<?php else : ?>
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( "No Posts Yet", 'wpbootstrap' ); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( "Sorry, What you were looking for is not here.", 'wpbootstrap' ); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+							<h1><?php esc_html_e( "No Posts Yet", 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( "Sorry, What you were looking for is not here.", 'wpbootstrap' ); ?></p>
+						section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
+
 				<?php get_sidebar(); // sidebar 1 ?>
     
 			</div> <!-- end #content -->
