@@ -1,13 +1,26 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package _s
+ */
+
+?>
+
 			<footer role="contentinfo">
 			
 				<div id="inner-footer" class="clearfix">
 		          <hr />
 		          <div id="widget-footer" class="clearfix row">
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+		            <?php if ( ! function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : ?>
+					<?php endif; ?>
+		            <?php if ( ! function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
 		            <?php endif; ?>
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : ?>
-		            <?php endif; ?>
-		            <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
+		            <?php if ( ! function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : ?>
 		            <?php endif; ?>
 		          </div>
 					
