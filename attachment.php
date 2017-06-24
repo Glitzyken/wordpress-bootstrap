@@ -1,8 +1,11 @@
 <?php
-
 /**
-Deeply philosophical file doc comment
-**/
+ * The template for displaying Author bios
+ *
+ * @package WordPress
+ * @subpackage wpbootstrap
+ * @since Twenty Fifteen 1.0
+ */
 
 get_header(); ?>
 			
