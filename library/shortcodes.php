@@ -1,30 +1,41 @@
 <?php
+/**
+ * The template for displaying pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package WordPress
+ * @subpackage wpbootstrap
+ * @since Twenty Fifteen 1.0
+ */
 
-// shortcodes
+// shortcodes.
 
 
 
 
-// Buttons
+// Buttons.
 function buttons( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'default', /* primary, default, info, success, danger, warning, inverse */
 	'size' => 'default', /* mini, small, default, large */
 	'url'  => '',
-	'text' => '', 
+	'text' => '',
 	), $atts ) );
-	
-	if($type == "default"){
+
+	if ( $type == "default" ) {
 		$type = "";
-	}
-	else{ 
+	} 
+	else { 
 		$type = "btn-" . $type;
 	}
 	
-	if($size == "default"){
+	if ( $size == "default" ){
 		$size = "";
 	}
-	else{
+	else {
 		$size = "btn-" . $size;
 	}
 	

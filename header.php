@@ -1,4 +1,14 @@
-<!doctype html>  
+<?php
+/**
+ * The template for displaying the header
+ *
+ * Displays all of the head element and everything up until the "site-content" div.
+ *
+ * @package WordPress
+ * @subpackage wpbootstrap
+ * @since Twenty Fifteen 1.0
+ */
+?><!doctype html>  
 
 <!--[if IEMobile 7 ]> <html <?php language_attributes(); ?>class="no-js iem7"> <![endif]-->
 <!--[if lt IE 7 ]> <html <?php language_attributes(); ?> class="no-js ie6"> <![endif]-->
@@ -11,7 +21,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><?php wp_title( '|', true, 'right' ); ?></title>	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
@@ -29,7 +39,7 @@
 		
 			<!-- respond.js -->
 		<!--[if lt IE 9]>
-		          <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+					<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
 		<![endif]-->	
 	</head>
 	
@@ -39,7 +49,7 @@
 				
 			<div class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
-          
+
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 							<span class="icon-bar"></span>
@@ -47,16 +57,16 @@
 							<span class="icon-bar"></span>
 						</button>
 
-						<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+						<a class="navbar-brand" title="<?php echo get_bloginfo( 'description' ); ?>" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
 					</div>
 
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
-						<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+						<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin. ?>
 
 						<?php //if(of_get_option('search_bar', '1')) {?>
 						<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
 							<div class="form-group">
-								<input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php _e('Search','wpbootstrap'); ?>">
+								<input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php esc_html_e('Search','wpbootstrap'); ?>">
 							</div>
 						</form>
 						<?php //} ?>

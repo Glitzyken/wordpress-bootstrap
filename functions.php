@@ -34,7 +34,7 @@ add_filter( 'the_generator', 'wp_bootstrap_rss_version' );
 if( !function_exists( "wp_bootstrap_excerpt_more" ) ) {  
   function wp_bootstrap_excerpt_more( $more ) {
     global $post;
-    return '...  <a href="'. get_permalink($post->ID) . '" class="more-link" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
+    return '...  <a href="'. get_permalink( $post->ID ) . '" class="more-link" title="Read '.get_the_title( $post->ID ).'">Read more &raquo;</a>';
   }
 }
 add_filter('excerpt_more', 'wp_bootstrap_excerpt_more');
@@ -56,7 +56,7 @@ if( !function_exists( "wp_bootstrap_theme_support" ) ) {
         'image',   // an image
         'quote',   // a quick quote
         'status',  // a Facebook like status update
-        'video',   // video 
+        'video',   // video
         'audio',   // audio
         'chat'     // chat transcript 
       )
