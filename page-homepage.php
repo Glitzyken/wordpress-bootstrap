@@ -1,7 +1,21 @@
 <?php
+/**
+ * The front page template file
+ *
+ * If the user has selected a static page for their homepage, this is what will
+ * appear.
+ * Learn more: https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Twenty_Seventeen
+ * @since 1.0
+ * @version 1.0
+ */
+
 /*
 Template Name: Homepage
 */
+
 ?>
 
 <?php get_header(); ?>
@@ -10,9 +24,9 @@ Template Name: Homepage
 			
 				<div id="main" class="col-sm-12 clearfix" role="main">
 
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 					
 						<header>
 
@@ -39,20 +53,20 @@ Template Name: Homepage
 								
 							</div>
 							
-							<?php get_sidebar('sidebar2'); // sidebar 2 ?>
+							<?php get_sidebar( 'sidebar2' ); // sidebar 2 ?>
 													
 						</section> <!-- end article header -->
 						
 						<footer>
 			
-							<p class="clearfix"><?php the_tags('<span class="tags">' . __("Tags","wpbootstrap") . ': ', ', ', '</span>'); ?></p>
+							<p class="clearfix"><?php the_tags( '<span class="tags">' . __( 'Tags','wpbootstrap' ) . ': ', ', ', '</span>' ); ?></p>
 							
 						</footer> <!-- end article footer -->
 					
 					</article> <!-- end article -->
 					
 					<?php 
-						// No comments on homepage
+						// No comments on homepage.
 						//comments_template();
 					?>
 					
@@ -62,10 +76,10 @@ Template Name: Homepage
 					
 					<article id="post-not-found">
 					    <header>
-					    	<h1><?php _e("Not Found", "wpbootstrap"); ?></h1>
+					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
 					    </header>
 					    <section class="post_content">
-					    	<p><?php _e("Sorry, but the requested resource was not found on this site.", "wpbootstrap"); ?></p>
+					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
 					    </section>
 					    <footer>
 					    </footer>
@@ -75,7 +89,7 @@ Template Name: Homepage
 			
 				</div> <!-- end #main -->
     
-				<?php //get_sidebar(); // sidebar 1 ?>
+				<?php //get_sidebar(); // sidebar 1. ?>
     
 			</div> <!-- end #content -->
 

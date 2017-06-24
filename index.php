@@ -30,7 +30,7 @@ get_header(); ?>
 							
 							<div class="page-header"><h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1></div>
 							
-							<p class="meta"><?php esc_html_e( 'Posted', "wpbootstrap"); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php echo get_the_date( 'F jS, Y', '','', FALSE ); ?></time> <?php esc_html_e( 'by', 'wpbootstrap'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap'); ?> <?php the_category(', '); ?>.</p>
+							<p class="meta"><?php esc_html_e( 'Posted', "wpbootstrap" ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php echo get_the_date( 'F jS, Y', '','', FALSE ); ?></time> <?php esc_html_e( 'by', 'wpbootstrap' ); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
@@ -40,7 +40,7 @@ get_header(); ?>
 						
 						<footer>
 			
-							<p class="tags"><?php the_tags('<span class="tags-title">' . __( 'Tags','wpbootstrap') . ':</span> ', ' ', ''); ?></p>
+							<p class="tags"><?php the_tags( '<span class="tags-title">' . __( 'Tags','wpbootstrap' ) . ':</span> ', ' ', ''); ?></p>
 							
 						</footer> <!-- end article footer -->
 					
@@ -48,15 +48,15 @@ get_header(); ?>
 					
 					<?php endwhile; ?>	
 					
-					<?php if ( function_exists( 'wp_bootstrap_page_navi' ) ) { // if expirimental feature is active ?>
+					<?php if ( function_exists( 'wp_bootstrap_page_navi' ) ) { // if expirimental feature is active. ?>
 						
-						<?php wp_bootstrap_page_navi(); // use the page navi function ?>
+						<?php wp_bootstrap_page_navi(); // use the page navi function. ?>
 						
-					<?php } else { // if it is disabled, display regular wp prev & next links ?>
+					<?php } else { // if it is disabled, display regular wp prev & next links. ?>
 						<nav class="wp-prev-next">
 							<ul class="pager">
-								<li class="previous"><?php next_posts_link(esc_html_e( '&laquo; Older Entries', 'wpbootstrap' ) ) ?></li>
-								<li class="next"><?php previous_posts_link(esc_html_e( 'Newer Entries &raquo;', 'wpbootstrap' ) ) ?></li>
+								<li class="previous"><?php next_posts_link( esc_html_e( '&laquo; Older Entries', 'wpbootstrap' ) ) ?></li>
+								<li class="next"><?php previous_posts_link( esc_html_e( 'Newer Entries &raquo;', 'wpbootstrap' ) ) ?></li>
 							</ul>
 						</nav>
 					<?php } ?>		
@@ -64,22 +64,22 @@ get_header(); ?>
 					<?php else : ?>
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap'); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
     
-				<?php get_sidebar(); // sidebar 1 ?>
-    
+				<?php get_sidebar(); // sidebar 1. ?>
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>
