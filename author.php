@@ -3,7 +3,7 @@
  * The template for displaying Author bios
  *
  * @package WordPress
- * @subpackage Twenty_Fifteen
+ * @subpackage wpbootstrap
  * @since Twenty Fifteen 1.0
  */
 
