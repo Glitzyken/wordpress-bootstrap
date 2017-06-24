@@ -1,7 +1,8 @@
 <?php
-/*
+
+/**
 Deeply philosophical file doc comment
-*/
+**/
 
 get_header(); ?>
 			
@@ -17,7 +18,7 @@ get_header(); ?>
 							
 							<div class="page-header"><h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1></div>
 							
-							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
+							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap' ); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
@@ -45,7 +46,7 @@ get_header(); ?>
 						<header>
 							<h1><?php esc_html_e( 'Not Found','wpbootstrap' ); ?></h1>
 						</header>
-					    <section class="post_content">
+						<section class="post_content">
 							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.','wpbootstrap' ); ?></p>
 						</section>
 						<footer>
