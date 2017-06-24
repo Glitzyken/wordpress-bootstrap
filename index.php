@@ -30,7 +30,7 @@ get_header(); ?>
 							
 							<div class="page-header"><h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1></div>
 							
-							<p class="meta"><?php esc_html_e( 'Posted', "wpbootstrap" ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php echo get_the_date( 'F jS, Y', '','', FALSE ); ?></time> <?php esc_html_e( 'by', 'wpbootstrap' ); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
+							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php echo get_the_date( 'F jS, Y', '','', false ); ?></time> <?php esc_html_e( 'by', 'wpbootstrap' ); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
@@ -40,7 +40,7 @@ get_header(); ?>
 						
 						<footer>
 			
-							<p class="tags"><?php the_tags( '<span class="tags-title">' . __( 'Tags','wpbootstrap' ) . ':</span> ', ' ', ''); ?></p>
+							<p class="tags"><?php the_tags( '<span class="tags-title">' . __( 'Tags','wpbootstrap' ) . ':</span> ', ' ', '' ); ?></p>
 							
 						</footer> <!-- end article footer -->
 					
@@ -65,7 +65,7 @@ get_header(); ?>
 					
 					<article id="post-not-found">
 						<header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
 						</header>
 						<section class="post_content">
 							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
@@ -77,7 +77,7 @@ get_header(); ?>
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
+
 				<?php get_sidebar(); // sidebar 1. ?>
 
 			</div> <!-- end #content -->

@@ -26,12 +26,12 @@ get_header(); ?>
 							
 							<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 							
-							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
+							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap' ); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
 						<section class="post_content">
-							<?php the_excerpt('<span class="read-more">' . __( 'Read more on','wpbootstrap') . ' "'.the_title( '', '', false ).'" &raquo;</span>'); ?>
+							<?php the_excerpt( '<span class="read-more">' . __( 'Read more on','wpbootstrap' ) . ' "'.the_title( '', '', false ).'" &raquo;</span>' ); ?>
 					
 						</section> <!-- end article section -->
 						
@@ -46,9 +46,9 @@ get_header(); ?>
 					
 					<?php if ( function_exists( 'wp_bootstrap_page_navi' ) ) { // if expirimental feature is active. ?>
 						
-						<?php wp_bootstrap_page_navi(); // use the page navi function ?>
+						<?php wp_bootstrap_page_navi(); // use the page navi function. ?>
 						
-					<?php } else { // if it is disabled, display regular wp prev & next links ?>
+					<?php } else { // if it is disabled, display regular wp prev & next links. ?>
 						<nav class="wp-prev-next">
 							<ul class="clearfix">
 								<li class="prev-link"><?php next_posts_link( esc_html_e( '&laquo; Older Entries', 'wpbootstrap' ) ) ?></li>
@@ -76,7 +76,7 @@ get_header(); ?>
 
 				</div> <!-- end #main -->
 
-				<?php get_sidebar(); // sidebar 1 ?>
+				<?php get_sidebar(); // sidebar 1. ?>
 
 			</div> <!-- end #content -->
 

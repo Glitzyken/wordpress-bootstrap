@@ -1,3 +1,4 @@
+<?php
 /**
  * The template for displaying all single posts
  *
@@ -8,6 +9,8 @@
  * @since 1.0
  * @version 1.0
  */
+
+?>
 
 				<div id="sidebar2" class="col-sm-4" role="complementary">
 				

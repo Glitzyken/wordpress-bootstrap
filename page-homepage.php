@@ -30,7 +30,7 @@ Template Name: Homepage
 					
 						<header>
 
-							<?php 
+							<?php
 								$post_thumbnail_id = get_post_thumbnail_id();
 								$featured_src = wp_get_attachment_image_src( $post_thumbnail_id, 'wpbs-featured-home' );
 							?>
@@ -38,7 +38,7 @@ Template Name: Homepage
 							<div class="jumbotron" style="background-image: url('<?php echo $featured_src[0]; ?>'); background-repeat: no-repeat; background-position: 0 0;">
 				
 								<div class="page-header">
-									<h1><?php bloginfo('title'); ?><small><?php echo get_post_meta($post->ID, 'custom_tagline' , true);?></small></h1>
+									<h1><?php bloginfo( 'title' ); ?><small><?php echo get_post_meta( $post->ID, 'custom_tagline' , true );?></small></h1>
 								</div>				
 								
 							</div>
@@ -53,7 +53,7 @@ Template Name: Homepage
 								
 							</div>
 							
-							<?php get_sidebar( 'sidebar2' ); // sidebar 2 ?>
+							<?php get_sidebar( 'sidebar2' ); // sidebar 2. ?>
 													
 						</section> <!-- end article header -->
 						
@@ -65,9 +65,9 @@ Template Name: Homepage
 					
 					</article> <!-- end article -->
 					
-					<?php 
+					<?php
 						// No comments on homepage.
-						//comments_template();
+						// comments_template();
 					?>
 					
 					<?php endwhile; ?>	
@@ -75,22 +75,22 @@ Template Name: Homepage
 					<?php else : ?>
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
+
 				<?php //get_sidebar(); // sidebar 1. ?>
-    
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>

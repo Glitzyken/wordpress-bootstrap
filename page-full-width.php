@@ -44,7 +44,7 @@ Template Name: Full Width Page
 						
 						<footer>
 			
-							<p class="clearfix"><?php the_tags('<span class="tags">' . __( 'Tags','wpbootstrap' ) . ': ', ', ', '</span>'); ?></p>
+							<p class="clearfix"><?php the_tags( '<span class="tags">' . __( 'Tags','wpbootstrap' ) . ': ', ', ', '</span>' ); ?></p>
 							
 						</footer> <!-- end article footer -->
 					
@@ -57,22 +57,22 @@ Template Name: Full Width Page
 					<?php else : ?>
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
-				<?php //get_sidebar(); // sidebar 1 ?>
-    
+
+				<?php // get_sidebar(); // sidebar 1 ?>
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>

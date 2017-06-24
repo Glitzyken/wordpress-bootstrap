@@ -64,8 +64,8 @@ get_header(); ?>
 					<?php } else { // if it is disabled, display regular wp prev & next links. ?>
 						<nav class="wp-prev-next">
 							<ul class="clearfix">
-								<li class="prev-link"><?php next_posts_link(esc_html_e( '&laquo; Older Entries', 'wpbootstrap' ) ) ?></li>
-								<li class="next-link"><?php previous_posts_link(esc_html_e( 'Newer Entries &raquo;', 'wpbootstrap' ) ) ?></li>
+								<li class="prev-link"><?php next_posts_link( esc_html_e( '&laquo; Older Entries', 'wpbootstrap' ) ) ?></li>
+								<li class="next-link"><?php previous_posts_link( esc_html_e( 'Newer Entries &raquo;', 'wpbootstrap' ) ) ?></li>
 							</ul>
 						</nav>
 					<?php } ?>
@@ -75,19 +75,19 @@ get_header(); ?>
 					
 					<article id="post-not-found">
 						<header>
-					    	<h1><?php esc_html_e( 'No Posts Yet', 'wpbootstrap' ); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, What you were looking for is not here.', 'wpbootstrap' ); ?></p>
+							<h1><?php esc_html_e( 'No Posts Yet', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, What you were looking for is not here.', 'wpbootstrap' ); ?></p>
 						</section>
 						<footer>
-					    </footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
+
 				<?php get_sidebar(); // sidebar 1. ?>
 
 			</div> <!-- end #content -->

@@ -57,7 +57,7 @@ Template Name: Left Sidebar Page
 						<header>
 							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
 						</header>
-					    <section class="post_content">
+						<section class="post_content">
 							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
 						</section>
 						<footer>
