@@ -61,7 +61,7 @@ Template Name: Full Width Page
 							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
 						</header>
 						<section class="post_content">
-							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
 						</section>
 						<footer>
 						</footer>
@@ -71,7 +71,7 @@ Template Name: Full Width Page
 			
 				</div> <!-- end #main -->
 
-				<?php // get_sidebar(); // sidebar 1 ?>
+				<?php // get_sidebar(); // sidebar 1. ?>
 
 			</div> <!-- end #content -->
 

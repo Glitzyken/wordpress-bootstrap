@@ -64,13 +64,13 @@
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
 						<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin. ?>
 
-						<?php // if(of_get_option('search_bar', '1')) {?>
+						<?php // if(of_get_option('search_bar', '1')) { // This commented out section does not need a period. ?>
 						<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
 							<div class="form-group">
 								<input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php esc_html_e( 'Search','wpbootstrap' ); ?>">
 							</div>
 						</form>
-						<?php // } ?>
+						<?php // } // This commented out section does not need a period. ?>
 					</div>
 
 				</div> <!-- end .container -->
