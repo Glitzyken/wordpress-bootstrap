@@ -4,4 +4,6 @@
     "excludeFiles": [
     	"js/**.min.js"
     ]
+
+    "maxErrors": Infinity
 }
