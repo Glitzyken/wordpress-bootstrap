@@ -38,35 +38,35 @@ get_header(); ?>
 						
 						<footer>
 			
-							<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags','wpbootstrap') . ':</span> ', ', ', '</p>'); ?>
+							<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags','wpbootstrap' ) . ':</span> ', ', ', '</p>'); ?>
 							
 						</footer> <!-- end article footer -->
 					
 					</article> <!-- end article -->
 					
-					<?php comments_template('',true); ?>
+					<?php comments_template( '',true ); ?>
 					
 					<?php endwhile; ?>		
 					
 					<?php else : ?>
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap'); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap'); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
-				<?php get_sidebar(); // sidebar 1 ?>
-    
+
+				<?php get_sidebar(); // sidebar 1. ?>
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>

@@ -1,7 +1,8 @@
+<?php
 /**
- * The template for displaying all single posts
+ * The template for displaying search results pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
  * @package WordPress
  * @subpackage wpbootstrap
@@ -9,7 +10,7 @@
  * @version 1.0
  */
 
-<?php get_header(); ?>
+get_header(); ?>
 			
 			<div id="content" class="clearfix row">
 			
@@ -61,22 +62,22 @@
 					<!-- this area shows up if there are no results -->
 					
 					<article id="post-not-found">
-					    <header>
-					    	<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
-					    </header>
-					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+						<header>
+							<h1><?php esc_html_e( 'Not Found', 'wpbootstrap' ); ?></h1>
+						</header>
+						<section class="post_content">
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.', 'wpbootstrap' ); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
-			
+
 				</div> <!-- end #main -->
-    			
-    			<?php get_sidebar(); // sidebar 1 ?>
-    
+
+				<?php get_sidebar(); // sidebar 1 ?>
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>
