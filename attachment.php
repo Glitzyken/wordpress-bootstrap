@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/*
+Deeply philosophical file doc comment
+*/
+
+get_header(); ?>
 			
 			<div id="content" class="clearfix row">
 			
@@ -12,7 +17,7 @@
 							
 							<div class="page-header"><h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1></div>
 							
-							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category(', '); ?>.</p>
+							<p class="meta"><?php esc_html_e( 'Posted', 'wpbootstrap' ); ?> <time datetime="<?php echo the_time( 'Y-m-j' ); ?>" pubdate><?php the_time(); ?></time> <?php esc_html_e( 'by', 'wpbootstrap'); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php esc_html_e( 'filed under', 'wpbootstrap' ); ?> <?php the_category( ', ' ); ?>.</p>
 						
 						</header> <!-- end article header -->
 					
@@ -24,7 +29,7 @@
 						
 						<footer>
 			
-							<?php the_tags( '<p class="tags"><span class="tags-title">' . __('Tags','wpbootstrap' ) . ':</span> ', ' ', '</p>' ); ?>
+							<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags','wpbootstrap' ) . ':</span> ', ' ', '</p>' ); ?>
 							
 						</footer> <!-- end article footer -->
 					
@@ -38,21 +43,21 @@
 					
 					<article id="post-not-found">
 						<header>
-							<h1><?php esc_html_e( 'Not Found','wpbootstrap'); ?></h1>
-					    </header>
+							<h1><?php esc_html_e( 'Not Found','wpbootstrap' ); ?></h1>
+						</header>
 					    <section class="post_content">
-					    	<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.','wpbootstrap'); ?></p>
-					    </section>
-					    <footer>
-					    </footer>
+							<p><?php esc_html_e( 'Sorry, but the requested resource was not found on this site.','wpbootstrap' ); ?></p>
+						</section>
+						<footer>
+						</footer>
 					</article>
 					
 					<?php endif; ?>
 			
 				</div> <!-- end #main -->
-    
-				<?php get_sidebar(); // sidebar 1 ?>
-    
+
+				<?php get_sidebar(); // sidebar 1. ?>
+
 			</div> <!-- end #content -->
 
 <?php get_footer(); ?>

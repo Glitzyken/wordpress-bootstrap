@@ -28,7 +28,7 @@ get_header(); ?>
 					
 						<section class="post_content">
 							
-							<p><?php esc_html_e( "Whatever you were looking for was not found, but maybe try looking again or search using the form below.",'wpbootstrap' ); ?></p>
+							<p><?php esc_html_e( 'Whatever you were looking for was not found, but maybe try looking again or search using the form below.','wpbootstrap' ); ?></p>
 
 							<div class="row">
 								<div class="col col-lg-12">
