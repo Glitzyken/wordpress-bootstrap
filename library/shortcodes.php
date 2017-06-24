@@ -25,84 +25,84 @@ function buttons( $atts, $content = null ) {
 	'text' => '',
 	), $atts ) );
 
-	if ( $type == "default" ) {
-		$type = "";
+	if ( $type == 'default' ) {
+		$type = '';
 	} 
 	else { 
-		$type = "btn-" . $type;
+		$type = 'btn-' . $type;
 	}
-	
-	if ( $size == "default" ){
+
+	if ( $size == 'default' ){
 		$size = "";
 	}
 	else {
-		$size = "btn-" . $size;
+		$size = 'btn-' . $size;
 	}
-	
-	$output = '<a href="' . $url . '" class="btn '. $type . ' ' . $size . '">';
+
+	$output = '<a href="' . $url . '" class="btn ' . $type . ' ' . $size . '">';
 	$output .= $text;
 	$output .= '</a>';
-	
+
 	return $output;
 }
 
-add_shortcode('button', 'buttons'); 
+add_shortcode('button', 'buttons');
 
-// Alerts
+// Alerts.
 function alerts( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'alert-info', /* alert-info, alert-success, alert-error */
 	'close' => 'false', /* display close link */
-	'text' => '', 
+	'text' => '',
 	), $atts ) );
-	
-	$output = '<div class="fade in alert alert-'. $type . '">';
-	if($close == 'true') {
+
+	$output = '<div class="fade in alert alert-' . $type . '">';
+	if( $close == 'true' ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= $text . '</div>';
-	
+
 	return $output;
 }
 
-add_shortcode('alert', 'alerts');
+add_shortcode( 'alert', 'alerts' );
 
-// Block Messages
+// Block Messages.
 function block_messages( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'alert-info', /* alert-info, alert-success, alert-error */
 	'close' => 'false', /* display close link */
-	'text' => '', 
+	'text' => '',
 	), $atts ) );
-	
-	$output = '<div class="fade in alert alert-block alert-'. $type . '">';
-	if($close == 'true') {
+
+	$output = '<div class="fade in alert alert-block alert-' . $type . '">';
+	if( $close == 'true' ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= '<p>' . $text . '</p></div>';
-	
+
 	return $output;
 }
 
-add_shortcode('block-message', 'block_messages'); 
+add_shortcode( 'block-message', 'block_messages' ); 
 
-// Block Messages
+// Block Messages.
 function blockquotes( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'float' => '', /* left, right */
 	'cite' => '', /* text for cite */
 	), $atts ) );
-	
+
 	$output = '<blockquote';
-	if($float == 'left') {
+	if( $float == 'left' ) {
 		$output .= ' class="pull-left"';
 	}
-	elseif($float == 'right'){
+	elseif( $float == 'right' ){
 		$output .= ' class="pull-right"';
 	}
 	$output .= '><p>' . $content . '</p>';
 	
-	if($cite){
+	if( $cite ){
 		$output .= '<small>' . $cite . '</small>';
 	}
 	
@@ -111,8 +111,8 @@ function blockquotes( $atts, $content = null ) {
 	return $output;
 }
 
-add_shortcode('blockquote', 'blockquotes'); 
- 
+add_shortcode( 'blockquote', 'blockquotes' ); 
+
 
 
 

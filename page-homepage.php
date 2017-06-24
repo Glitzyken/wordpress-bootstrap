@@ -67,7 +67,7 @@ Template Name: Homepage
 					
 					<?php
 						// No comments on homepage.
-						// comments_template();
+						// comments_template(); // Commented out code, period not needed.
 					?>
 					
 					<?php endwhile; ?>	

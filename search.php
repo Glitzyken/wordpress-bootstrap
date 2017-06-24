@@ -31,7 +31,7 @@ get_header(); ?>
 						</header> <!-- end article header -->
 					
 						<section class="post_content">
-							<?php the_excerpt( '<span class="read-more">' . __( 'Read more on','wpbootstrap' ) . ' "'.the_title( '', '', false ) . '" &raquo;</span>' ); ?>
+							<?php the_excerpt( '<span class="read-more">' . __( 'Read more on','wpbootstrap' ) . ' "' . the_title( '', '', false ) . '" &raquo;</span>' ); ?>
 					
 						</section> <!-- end article section -->
 						
