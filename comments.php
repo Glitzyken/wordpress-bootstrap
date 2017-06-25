@@ -24,11 +24,11 @@
  */
 
 // Do not delete these lines.
-  if ( ! empty( $_SERVER[ 'SCRIPT_FILENAME' ] ) && 'comments.php' == basename( $_SERVER[ 'SCRIPT_FILENAME' ] ) )
+  if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) )
 	die( 'Please do not load this page directly. Thanks!' );
 
   if ( post_password_required() ) { ?>
-  	<div class="alert alert-info"><?php esc_html_e( 'This post is password protected. Enter the password to view comments.','wpbootstrap' ); ?></div>
+	<div class="alert alert-info"><?php esc_html_e( 'This post is password protected. Enter the password to view comments.','wpbootstrap' ); ?></div>
   <?php
 	return;
   }
@@ -37,8 +37,8 @@
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<?php if ( ! empty( $comments_by_type[ 'comment' ]) ) : ?>
-	<h3 id="comments"><?php comments_number('<span>' . __( 'No','wpbootstrap' ) . '</span> ' . __( 'Responses','wpbootstrap' ) . '', '<span>' . __( "One",'wpbootstrap' ) . '</span> ' . __( 'Response','wpbootstrap' ) . '', '<span>%</span> ' . __( 'Responses','wpbootstrap' ) );?> <?php esc_html_e( 'to','wpbootstrap' ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+	<?php if ( ! empty( $comments_by_type[ 'comment' ] ) ) : ?>
+	<h3 id="comments"><?php comments_number( '<span>' . __( 'No','wpbootstrap' ) . '</span> ' . __( 'Responses','wpbootstrap' ) . '', '<span>' . __( 'One','wpbootstrap' ) . '</span> ' . __( 'Response','wpbootstrap' ) . '', '<span>%</span> ' . __( 'Responses','wpbootstrap' ) );?> <?php esc_html_e( 'to','wpbootstrap' ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<nav id="comment-nav">
 		<ul class="clearfix">
