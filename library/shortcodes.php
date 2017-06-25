@@ -26,16 +26,14 @@ function buttons( $atts, $content = null ) {
 	), $atts ) );
 
 	if ( $type == 'default' ) {
-		$type = ''; 
-	}
-	else {
+		$type = '';
+	} else {
 		$type = 'btn-' . $type;
 	}
 
 	if ( $size == 'default' ) {
 		$size = '';
-	} 
-	else {
+	} else {
 		$size = 'btn-' . $size;
 	}
 
@@ -96,13 +94,12 @@ function blockquotes( $atts, $content = null ) {
 	$output = '<blockquote';
 	if ( $float == 'left' ) {
 		$output .= ' class="pull-left"';
-	} 
-	elseif ( $float == 'right' ) {
+	} elseif ( $float == 'right' ) {
 		$output .= ' class="pull-right"';
 	}
 	$output .= '><p>' . $content . '</p>';
 	
-	if ( $cite ){
+	if ( $cite ) {
 		$output .= '<small>' . $cite . '</small>';
 	}
 
