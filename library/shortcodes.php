@@ -92,9 +92,9 @@ function blockquotes( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<blockquote';
-	if ( $float == 'left' ) {
+	if ( 'left' == $float ) {
 		$output .= ' class="pull-left"';
-	} elseif ( $float == 'right' ) {
+	} elseif ( 'right' == $float ) {
 		$output .= ' class="pull-right"';
 	}
 	$output .= '><p>' . $content . '</p>';
