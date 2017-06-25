@@ -38,7 +38,7 @@ Template Name: Homepage
 							<div class="jumbotron" style="background-image: url('<?php echo esc_url( $featured_src[0] ) ?>' ); background-repeat: no-repeat; background-position: 0 0;">
 				
 								<div class="page-header">
-									<h1><?php bloginfo( 'title' ); ?><small><?php echo get_post_meta( $post->ID, 'custom_tagline' , true );?></small></h1>
+									<h1><?php bloginfo( 'title' ); ?><small><?php echo esc_url( get_post_meta( $post->ID, 'custom_tagline' , true ) );?></small></h1>
 								</div>				
 								
 							</div>
