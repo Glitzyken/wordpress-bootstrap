@@ -20,11 +20,11 @@ get_header(); ?>
 							$curauth = ( get_query_var( 'author_name' ) ) ? get_user_by( 'slug', get_query_var( 'author_name' ) ) : get_userdata( get_query_var( 'author' ) );
 							$google_profile = get_the_author_meta( 'google_profile', $curauth->ID );
 							if ( $google_profile ) {
-								echo '<a href="' . esc_url( $google_profile ) . '" rel="me">' . $curauth->display_name . '</a>';
+								echo '<a href="' . esc_url( $google_profile ) . '" rel="me">' . esc_url( $curauth->display_name ) . '</a>';
 						?>
 						<?php
 							} else {
-								echo get_the_author_meta( 'display_name', $curauth->ID );
+								echo esc_url( get_the_author_meta( 'display_name', $curauth->ID ) );
 							}
 						?>
 					</h1></div>
