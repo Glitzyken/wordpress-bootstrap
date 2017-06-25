@@ -98,7 +98,7 @@ function blockquotes( $atts, $content = null ) {
 		$output .= ' class="pull-right"';
 	}
 	$output .= '><p>' . $content . '</p>';
-	
+
 	if ( $cite ) {
 		$output .= '<small>' . $cite . '</small>';
 	}
