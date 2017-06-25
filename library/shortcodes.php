@@ -26,15 +26,15 @@ function buttons( $atts, $content = null ) {
 	), $atts ) );
 
 	if ( $type == 'default' ) {
-		$type = '';
-	} 
-	else { 
+		$type = ''; 
+	}
+	else {
 		$type = 'btn-' . $type;
 	}
 
-	if ( $size == 'default' ){
-		$size = "";
-	}
+	if ( $size == 'default' ) {
+		$size = '';
+	} 
 	else {
 		$size = 'btn-' . $size;
 	}
@@ -46,7 +46,7 @@ function buttons( $atts, $content = null ) {
 	return $output;
 }
 
-add_shortcode('button', 'buttons');
+add_shortcode( 'button', 'buttons' );
 
 // Alerts.
 function alerts( $atts, $content = null ) {
@@ -57,7 +57,7 @@ function alerts( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<div class="fade in alert alert-' . $type . '">';
-	if( $close == 'true' ) {
+	if ( $close == 'true' ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= $text . '</div>';
@@ -76,7 +76,7 @@ function block_messages( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<div class="fade in alert alert-block alert-' . $type . '">';
-	if( $close == 'true' ) {
+	if ( $close == 'true' ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= '<p>' . $text . '</p></div>';
@@ -84,7 +84,7 @@ function block_messages( $atts, $content = null ) {
 	return $output;
 }
 
-add_shortcode( 'block-message', 'block_messages' ); 
+add_shortcode( 'block-message', 'block_messages' );
 
 // Block Messages.
 function blockquotes( $atts, $content = null ) {
@@ -94,26 +94,25 @@ function blockquotes( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<blockquote';
-	if( $float == 'left' ) {
+	if ( $float == 'left' ) {
 		$output .= ' class="pull-left"';
-	}
-	elseif( $float == 'right' ){
+	} 
+	elseif ( $float == 'right' ) {
 		$output .= ' class="pull-right"';
 	}
 	$output .= '><p>' . $content . '</p>';
 	
-	if( $cite ){
+	if ( $cite ){
 		$output .= '<small>' . $cite . '</small>';
 	}
-	
+
 	$output .= '</blockquote>';
-	
+
 	return $output;
 }
 
-add_shortcode( 'blockquote', 'blockquotes' ); 
+add_shortcode( 'blockquote', 'blockquotes' );
 
 
 
 
-?>
