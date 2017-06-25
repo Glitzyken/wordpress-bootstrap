@@ -10,7 +10,7 @@
 
 ?>
 
-<form action="<?php echo home_url( '/' ); ?>" method="get" class="form-inline">
+<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="form-inline">
 	<fieldset>
 		<div class="input-group">
 			<input type="text" name="s" id="search" placeholder="<?php esc_html_e( 'Search','wpbootstrap' ); ?>" value="<?php the_search_query(); ?>" class="form-control" />
