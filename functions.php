@@ -500,7 +500,7 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 		}
 
 		$item_output = $args->before;
-		$item_output .= '<a' . $attributes .'>';
+		$item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $object->title, $object->ID );
 		$item_output .= $args->link_after;
 
@@ -517,25 +517,42 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $object, $depth, $args );
 	} // end start_el function.
 
-	function start_lvl( &$output, $depth = 0, $args = Array() ) {
+	/**
+	 * Start level dropdown menu function.
+	 */
+
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
 		$output .= "\n$indent<ul class=\"dropdown-menu\">\n";
 	}
 
-	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
+	/**
+	 * Display element Function
+	 */
+
+	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ){
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
 				$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
 		}
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-	}
+	} // end display_element function.
 }
 
 add_editor_style( 'editor-style.css' );
 
+/**
+ * Add Active Classes Function.
+ *
+ * @param string $classes The string passed in by reference.
+ *
+ * @param string $item The string passed in by reference.
+ *
+ * @return $classes
+ */
 function wp_bootstrap_add_active_class( $classes, $item ) {
-	if ( $item->menu_item_parent == 0 && in_array( 'current-menu-item', $classes ) ) {
-		$classes[] = "active";
+	if ( 0 == $item->menu_item_parent && in_array( 'current-menu-item', $classes ) ) {
+		$classes[] = 'active';
 	}
 
 	return $classes;
@@ -544,7 +561,10 @@ function wp_bootstrap_add_active_class( $classes, $item ) {
 // Add Twitter Bootstrap's standard 'active' class name to the active nav link item.
 add_filter( 'nav_menu_css_class', 'wp_bootstrap_add_active_class', 10, 2 );
 
-// enqueue styles.
+
+/**
+ * Enqueue styles.
+ */
 if ( ! function_exists( "wp_bootstrap_theme_styles" ) ) {
 		function wp_bootstrap_theme_styles() {
 				// This is the compiled css file from LESS - this means you compile the LESS file locally and put it in the appropriate directory if you want to make any changes to the master bootstrap.css.
@@ -559,28 +579,28 @@ if ( ! function_exists( "wp_bootstrap_theme_styles" ) ) {
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_theme_styles' );
 
 // enqueue javascript.
-if ( ! function_exists( "wp_bootstrap_theme_js" ) ) {
+if ( ! function_exists( 'wp_bootstrap_theme_js' ) ) {
 	function wp_bootstrap_theme_js() {
 
-		if ( !is_admin() ){
-			if ( is_singular() and comments_open() and ( get_option( 'thread_comments' ) == 1) )
+		if ( ! is_admin() ) {
+			if ( is_singular() && comments_open() && ( get_option( 'thread_comments' ) == 1) )
 				wp_enqueue_script( 'comment-reply' );
 		}
 
 		// This is the full Bootstrap js distribution file. If you only use a few components that require the js files consider loading them individually instead.
 		wp_register_script( 'bootstrap',
 			get_template_directory_uri() . '/bower_components/bootstrap/dist/js/bootstrap.js',
-			array('jquery'),
+			array( 'jquery' ),
 			'1.2' );
 
 		wp_register_script( 'wpbs-js',
 			get_template_directory_uri() . '/library/dist/js/scripts.d1e3d952.min.js',
-			array('bootstrap'),
+			array( 'bootstrap' ),
 			'1.2' );
 
 		wp_register_script( 'modernizr',
 			get_template_directory_uri() . '/bower_components/modernizer/modernizr.js',
-			array('jquery'),
+			array( 'jquery' ),
 			'1.2' );
 
 		wp_enqueue_script( 'bootstrap' );
@@ -591,7 +611,16 @@ if ( ! function_exists( "wp_bootstrap_theme_js" ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_theme_js' );
 
-// Get <head> <title> to behave like other themes.
+
+/**
+ * Get <head> <title> to behave like other themes.
+ *
+ * @param string $title The string passed in by reference.
+ *
+ * @param string $sep The string passed in by reference
+ *
+ * @return $title
+ */
 function wp_bootstrap_wp_title( $title, $sep ) {
 	global $paged, $page;
 
@@ -621,7 +650,6 @@ add_filter( 'wp_title', 'wp_bootstrap_wp_title', 10, 2 );
 /**
  * Related Posts Function.
  *
- * @return
  */
 function wp_bootstrap_related_posts() {
 	echo '<ul id="bones-related-posts">';
@@ -632,14 +660,14 @@ function wp_bootstrap_related_posts() {
 				$args = array(
 					'tag' => $tag_arr,
 					'numberposts' => 5, /* you can change this to show more */
-					'post__not_in' => array($post->ID),
+					'post__not_in' => array( $post->ID ),
 			);
 				$related_posts = get_posts( $args );
 				if ( $related_posts ) {
 					foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
 							<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-					<?php endforeach; }
-			else { ?>
+					<?php endforeach; } else { 
+						?>
 						<li class="no_related_post">No Related Posts Yet!</li>
 		<?php }
 	}
@@ -651,11 +679,10 @@ function wp_bootstrap_related_posts() {
 /**
  * Numeric Page Navigation Function.
  *
- * @param string $before The string passed in by reference
+ * @param string $before The string passed in by reference.
  *
- * @param string $after The string passed in by reference
+ * @param string $after The string passed in by reference.
  *
- * @return
  */
 function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	global $wpdb, $wp_query;
@@ -696,7 +723,7 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 
 	$prevposts = get_previous_posts_link( __( '&larr; Previous','wpbootstrap' ) );
 	if ( $prevposts ) {
-		echo '<li>' . esc_url( $prevposts ) . '</li>'; } else { 
+		echo '<li>' . esc_url( $prevposts ) . '</li>'; } else {
 			echo '<li class="disabled"><a href="#">' . esc_html( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
 
 	for ( $i = $start_page; $i <= $end_page; $i++ ) {
