@@ -234,15 +234,15 @@ function wp_bootstrap_comments( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<div class="comment-author vcard clearfix">
 				<div class="avatar col-sm-3">
-					<?php echo get_avatar( $comment, $size ='75' ); ?>
+					<?php echo get_avatar( $comment, $size = '75' ); ?>
 				</div>
 				<div class="col-sm-9 comment-text">
 					<?php printf( '<h4>%s</h4>', get_comment_author_link() ) ?>
-					<?php edit_comment_link(__( 'Edit','wpbootstrap' ),'<span class="edit-comment btn btn-sm btn-info"><i class="glyphicon-white glyphicon-pencil"></i>','</span>' ) ?>
+					<?php edit_comment_link( __( 'Edit','wpbootstrap' ),'<span class="edit-comment btn btn-sm btn-info"><i class="glyphicon-white glyphicon-pencil"></i>','</span>' ) ?>
 
 										<?php if ( $comment->comment_approved == '0' ) : ?>
 									<div class="alert-message success">
-									<p><?php _e('Your comment is awaiting moderation.','wpbootstrap') ?></p>
+									<p><?php esc_html_e( 'Your comment is awaiting moderation.','wpbootstrap' ) ?></p>
 									</div>
 					<?php endif; ?>
 
@@ -275,7 +275,7 @@ add_filter( 'the_password_form', 'wp_bootstrap_custom_password_form' );
 
 function wp_bootstrap_custom_password_form() {
 	global $post;
-	$label = 'pwbox-'. ( empty( $post->ID ) ? rand() : $post->ID );
+	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 	$o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option( 'siteurl' ) . '/wp-login.php?action=postpass" method="post">
 	' . '<p>' . __( 'This post is password protected. To view it please enter your password below:' ,'wpbootstrap' ) . '</p>' . '
 	<label for="' . $label . '">' . __( 'Password:' ,'wpbootstrap' ) . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( 'Submit','wpbootstrap' ) . '" /></div>
@@ -301,18 +301,18 @@ function wp_bootstrap_add_tag_class( $taglinks ) {
 		$tags = explode( '</a>', $taglinks );
 		$regex = "#(.*tag-link[-])(.*)(' title.*)#e";
 
-		foreach( $tags as $tag ) {
+		foreach ( $tags as $tag ) {
 			$tagn[] = preg_replace( $regex, "( '$1$2 label tag-'.get_tag( $2 )->slug.'$3' )", $tag );
 		}
 
-		$taglinks = implode('</a>', $tagn);
+		$taglinks = implode( '</a>', $tagn );
 
 		return $taglinks;
 }
 
 add_action( 'wp_tag_cloud', 'wp_bootstrap_add_tag_class' );
 
-add_filter( 'wp_tag_cloud','wp_bootstrap_wp_tag_cloud_filter', 10, 2 ) ;
+add_filter( 'wp_tag_cloud','wp_bootstrap_wp_tag_cloud_filter', 10, 2 );
 
 function wp_bootstrap_wp_tag_cloud_filter( $return, $args )
 {
@@ -329,7 +329,7 @@ function wp_bootstrap_remove_more_jump_link( $link ) {
 		$end = strpos( $link, '"',$offset );
 	}
 	if ( $end ) {
-		$link = substr_replace( $link, '', $offset, $end-$offset );
+		$link = substr_replace( $link, '', $offset, $end - $offset );
 	}
 	return $link;
 }
@@ -340,7 +340,7 @@ add_filter( 'post_thumbnail_html', 'wp_bootstrap_remove_thumbnail_dimensions', 1
 add_filter( 'image_send_to_editor', 'wp_bootstrap_remove_thumbnail_dimensions', 10 );
 
 function wp_bootstrap_remove_thumbnail_dimensions( $html ) {
-		$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+		$html = preg_replace( '/(width|height)=\"\d*\"\s/', '', $html );
 		return $html;
 }
 
@@ -389,12 +389,12 @@ function wp_bootstrap_show_homepage_meta_box() {
 
 	foreach ( $custom_meta_fields as $field ) {
 			// get value of this field if it exists for this post.
-			$meta = get_post_meta($post->ID, $field['id'], true);
+			$meta = get_post_meta( $post->ID, $field['id'], true );
 			// begin a table row with.
 			echo '<tr>
 							<th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th>
 							<td>';
-							switch($field['type']) {
+							switch( $field['type'] ) {
 									// text.
 									case 'text':
 											echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="60" />
@@ -436,7 +436,7 @@ function wp_bootstrap_save_homepage_meta( $post_id ) {
 		// loop through fields and save the data.
 		foreach ( $custom_meta_fields as $field ) {
 				$old = get_post_meta( $post_id, $field['id'], true );
-				$new = $_POST[$field['id']];
+				$new = $_POST[ $field['id'] ];
 
 				if ($new && $new != $old) {
 							update_post_meta( $post_id, $field['id'], $new );
@@ -656,8 +656,8 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	}
 	$pages_to_show = 7;
 	$pages_to_show_minus_1 = $pages_to_show - 1;
-	$half_page_start = floor( $pages_to_show_minus_1/2 );
-	$half_page_end = ceil( $pages_to_show_minus_1/2 );
+	$half_page_start = floor( $pages_to_show_minus_1 / 2 );
+	$half_page_end = ceil( $pages_to_show_minus_1 / 2 );
 	$start_page = $paged - $half_page_start;
 	if ( $start_page <= 0 ) {
 		$start_page = 1;
