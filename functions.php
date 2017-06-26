@@ -688,17 +688,17 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 		$start_page = 1;
 	}
 
-	echo $before . '<ul class="pagination">' . "";
+	echo esc_url( $before ) . '<ul class="pagination">' . '';
 	if ( $paged > 1 ) {
 		$first_page_text = '&laquo';
-		echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="' . __( 'First','wpbootstrap' ) . '">' . $first_page_text . '</a></li>';
+		echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="' . esc_html( 'First','wpbootstrap' ) . '">' . esc_html( $first_page_text ) . '</a></li>';
 	}
 
 	$prevposts = get_previous_posts_link( __( '&larr; Previous','wpbootstrap' ) );
-	if ( $prevposts ) { echo '<li>' . $prevposts  . '</li>'; }
-	else { echo '<li class="disabled"><a href="#">' . __( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
+	if ( $prevposts ) { echo '<li>' . esc_url( $prevposts ) . '</li>'; }
+	else { echo '<li class="disabled"><a href="#">' . esc_html( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
 
-	for ( $i = $start_page; $i  <= $end_page; $i++ ) {
+	for ( $i = $start_page; $i <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
 			echo '<li class="active"><a href="#">' . esc_attr( $i ) . '</a></li>';
 		} else {
