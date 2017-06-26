@@ -7,7 +7,7 @@ $locale_file = TEMPLATEPATH . "/languages/$locale.php";
 if ( is_readable( $locale_file ) ) require_once( $locale_file );
 
 // Clean up the WordPress Head.
-if ( ! function_exists( "wp_bootstrap_head_cleanup" ) ) {
+if ( ! function_exists( 'wp_bootstrap_head_cleanup' ) ) {
   function wp_bootstrap_head_cleanup() {
     // remove header links.
     remove_action( 'wp_head', 'feed_links_extra', 3 );                    // Category Feeds
@@ -25,16 +25,16 @@ if ( ! function_exists( "wp_bootstrap_head_cleanup" ) ) {
 add_action( 'init', 'wp_bootstrap_head_cleanup' );
 
 // remove WP version from RSS.
-if ( ! function_exists( "wp_bootstrap_rss_version" ) ) {  
+if ( ! function_exists( 'wp_bootstrap_rss_version' ) ) {  
   function wp_bootstrap_rss_version() { return ''; }
 }
 add_filter( 'the_generator', 'wp_bootstrap_rss_version' );
 
 // Remove the […] in a Read More link.
-if ( ! function_exists( "wp_bootstrap_excerpt_more" ) ) {
+if ( ! function_exists( 'wp_bootstrap_excerpt_more' ) ) {
   function wp_bootstrap_excerpt_more( $more ) {
     global $post;
-    return '...  <a href="'. get_permalink( $post->ID ) . '" class="more-link" title="Read '. get_the_title( $post->ID ) . '">Read more &raquo;</a>';
+    return '...  <a href="'. get_permalink( $post->ID ) . '" class="more-link" title="Read ' . get_the_title( $post->ID ) . '">Read more &raquo;</a>';
   }
 }
 add_filter( 'excerpt_more', 'wp_bootstrap_excerpt_more' );
@@ -78,13 +78,13 @@ add_action( 'after_setup_theme','wp_bootstrap_theme_support' );
 function wp_bootstrap_main_nav() {
   // Display the WordPress menu if available.
   wp_nav_menu(
-    array( 
+    array(
       'menu' => 'main_nav', /* menu name */
       'menu_class' => 'nav navbar-nav',
       'theme_location' => 'main_nav', /* where in the theme it's assigned */
       'container' => 'false', /* container class */
       'fallback_cb' => 'wp_bootstrap_main_nav_fallback', /* menu fallback */
-      'walker' => new Bootstrap_walker()
+      'walker' => new Bootstrap_walker(),
     )
   );
 }
@@ -96,7 +96,7 @@ function wp_bootstrap_footer_links() {
       'menu' => 'footer_links', /* menu name */
       'theme_location' => 'footer_links', /* where in the theme it's assigned */
       'container_class' => 'footer-links clearfix', /* container class */
-      'fallback_cb' => 'wp_bootstrap_footer_links_fallback' /* menu fallback */
+      'fallback_cb' => 'wp_bootstrap_footer_links_fallback', /* menu fallback */
     )
   );
 }
