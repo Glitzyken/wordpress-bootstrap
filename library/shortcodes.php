@@ -88,10 +88,9 @@ add_shortcode( 'block-message', 'block_messages' );
 /**
  * Block Messages.
  *
- * @param string $atts The string passed in by reference
- *
- * @return void
- * @return
+ * @param string $atts  and $content The string passed in by reference
+ * 
+ * @return $output
  */
 function blockquotes( $atts, $content = null ) {
 	extract( shortcode_atts( array(
