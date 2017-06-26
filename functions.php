@@ -700,9 +700,9 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 
 	for ( $i = $start_page; $i  <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
-			echo '<li class="active"><a href="#">' . $i . '</a></li>';
+			echo '<li class="active"><a href="#">' . esc_attr( $i ) . '</a></li>';
 		} else {
-			echo '<li><a href="' . get_pagenum_link( $i ) . '">' . $i . '</a></li>';
+			echo '<li><a href="' . get_pagenum_link( $i ) . '">' . esc_attr( $i ) . '</a></li>';
 		}
 	}
 	echo '<li class="">';
@@ -710,16 +710,16 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	echo '</li>';
 	if ( $end_page < $max_page ) {
 		$last_page_text = '&raquo;';
-		echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="' . __( 'Last','wpbootstrap' ) . '">' . $last_page_text . '</a></li>';
+		echo '<li class="next"><a href="' . esc_url( get_pagenum_link( $max_page ) ) . '" title="' . esc_html( 'Last','wpbootstrap' ) . '">' . $last_page_text . '</a></li>';
 	}
-	echo '</ul>' . $after . '';
+	echo '</ul>' . esc_html( $after ) . '';
 }
 
 
 /**
  * Remove <p> tags from around images.
  *
- * @param string $content The string passed in by reference
+ * @param string $content The string passed in by reference.
  *
  * @return preg_replace()
  */
