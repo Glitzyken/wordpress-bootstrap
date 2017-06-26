@@ -25,13 +25,13 @@ function buttons( $atts, $content = null ) {
 	'text' => '',
 	), $atts ) );
 
-	if ( $type == 'default' ) {
+	if ( 'default' == $type ) {
 		$type = '';
 	} else {
 		$type = 'btn-' . $type;
 	}
 
-	if ( $size == 'default' ) {
+	if ( 'default' == $size ) {
 		$size = '';
 	} else {
 		$size = 'btn-' . $size;
@@ -55,7 +55,7 @@ function alerts( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<div class="fade in alert alert-' . $type . '">';
-	if ( $close == 'true' ) {
+	if ( 'true' == $close ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= $text . '</div>';
@@ -74,7 +74,7 @@ function block_messages( $atts, $content = null ) {
 	), $atts ) );
 
 	$output = '<div class="fade in alert alert-block alert-' . $type . '">';
-	if ( $close == 'true' ) {
+	if ( 'true' == $close ) {
 		$output .= '<a class="close" data-dismiss="alert">×</a>';
 	}
 	$output .= '<p>' . $text . '</p></div>';
