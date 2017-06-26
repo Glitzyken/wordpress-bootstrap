@@ -37,7 +37,7 @@
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<?php if ( ! empty( $comments_by_type[ 'comment' ] ) ) : ?>
+	<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
 	<h3 id="comments"><?php comments_number( '<span>' . __( 'No','wpbootstrap' ) . '</span> ' . __( 'Responses','wpbootstrap' ) . '', '<span>' . __( 'One','wpbootstrap' ) . '</span> ' . __( 'Response','wpbootstrap' ) . '', '<span>%</span> ' . __( 'Responses','wpbootstrap' ) );?> <?php esc_html_e( 'to','wpbootstrap' ); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<nav id="comment-nav">
