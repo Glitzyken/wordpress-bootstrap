@@ -700,22 +700,29 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 
 	for ( $i = $start_page; $i  <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
-			echo '<li class="active"><a href="#">'.$i.'</a></li>';
+			echo '<li class="active"><a href="#">' . $i . '</a></li>';
 		} else {
 			echo '<li><a href="' . get_pagenum_link( $i ) . '">' . $i . '</a></li>';
 		}
 	}
 	echo '<li class="">';
-	next_posts_link( __('Next &rarr;','wpbootstrap') );
+	next_posts_link( __( 'Next &rarr;','wpbootstrap' ) );
 	echo '</li>';
 	if ( $end_page < $max_page ) {
-		$last_page_text = "&raquo;";
-		echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="' . __( 'Last','wpbootstrap' ) . '">'.$last_page_text.'</a></li>';
+		$last_page_text = '&raquo;';
+		echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="' . __( 'Last','wpbootstrap' ) . '">' . $last_page_text . '</a></li>';
 	}
-	echo '</ul>'.$after."";
+	echo '</ul>' . $after . '';
 }
 
-// Remove <p> tags from around images.
+
+/**
+ * Remove <p> tags from around images.
+ *
+ * @param string $content The string passed in by reference
+ *
+ * @return preg_replace()
+ */
 function wp_bootstrap_filter_ptags_on_images( $content ){
 	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 }
