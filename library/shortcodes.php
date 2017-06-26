@@ -88,8 +88,9 @@ add_shortcode( 'block-message', 'block_messages' );
 /**
  * Block Messages.
  *
- * @param string $atts  and $content The string passed in by reference
- * 
+ * @param string $atts The string passed in by reference.
+ * @param string $content The string passed in by reference.
+ *
  * @return $output
  */
 function blockquotes( $atts, $content = null ) {
@@ -112,7 +113,7 @@ function blockquotes( $atts, $content = null ) {
 
 	$output .= '</blockquote>';
 
-	return $output; // End of blockquotes()
+	return $output; // End of blockquotes().
 }
 
 add_shortcode( 'blockquote', 'blockquotes' );
