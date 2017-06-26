@@ -618,6 +618,11 @@ function wp_bootstrap_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'wp_bootstrap_wp_title', 10, 2 );
 
 // Related Posts Function (call using wp_bootstrap_related_posts(); ) //Commented out code, period not needed.
+/**
+ * Related Posts Function.
+ *
+ * @return
+ */
 function wp_bootstrap_related_posts() {
 	echo '<ul id="bones-related-posts">';
 	global $post;
@@ -627,10 +632,10 @@ function wp_bootstrap_related_posts() {
 				$args = array(
 					'tag' => $tag_arr,
 					'numberposts' => 5, /* you can change this to show more */
-					'post__not_in' => array($post->ID)
+					'post__not_in' => array($post->ID),
 			);
 				$related_posts = get_posts( $args );
-				if( $related_posts ) {
+				if ( $related_posts ) {
 					foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
 							<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 					<?php endforeach; }
@@ -643,6 +648,15 @@ function wp_bootstrap_related_posts() {
 }
 
 // Numeric Page Navi (built into the theme by default).
+/**
+ * Numeric Page Navigation Function.
+ *
+ * @param string $before The string passed in by reference
+ *
+ * @param string $after The string passed in by reference
+ *
+ * @return
+ */
 function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	global $wpdb, $wp_query;
 	$request = $wp_query->request;
