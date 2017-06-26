@@ -11,12 +11,20 @@
  * @since Twenty Fifteen 1.0
  */
 
-// shortcodes.
+/***************************************
+╔═╗┬ ┬┌─┐┬─┐┌┬┐┌─┐┌─┐┌┬┐┌─┐┌─┐ 
+╚═╗├─┤│ │├┬┘ │ │  │ │ ││├┤ └─┐ 
+╚═╝┴ ┴└─┘┴└─ ┴ └─┘└─┘─┴┘└─┘└─┘
+***************************************/
 
-
-
-
-// Buttons.
+/**
+ * Buttons.
+ *
+ * @param string $atts The string passed in by reference.
+ * @param string $content The string passed in by reference.
+ *
+ * @return $output
+ */
 function buttons( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'default', /* primary, default, info, success, danger, warning, inverse */
@@ -46,7 +54,15 @@ function buttons( $atts, $content = null ) {
 
 add_shortcode( 'button', 'buttons' );
 
-// Alerts.
+
+/**
+ * Alerts.
+ *
+ * @param string $atts The string passed in by reference.
+ * @param string $content The string passed in by reference.
+ *
+ * @return $output
+ */
 function alerts( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'alert-info', /* alert-info, alert-success, alert-error */
@@ -65,7 +81,15 @@ function alerts( $atts, $content = null ) {
 
 add_shortcode( 'alert', 'alerts' );
 
-// Block Messages.
+
+/**
+ * Block Messages.
+ *
+ * @param string $atts The string passed in by reference.
+ * @param string $content The string passed in by reference.
+ *
+ * @return $output
+ */
 function block_messages( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'type' => 'alert-info', /* alert-info, alert-success, alert-error */
