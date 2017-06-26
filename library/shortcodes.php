@@ -84,7 +84,15 @@ function block_messages( $atts, $content = null ) {
 
 add_shortcode( 'block-message', 'block_messages' );
 
-// Block Messages.
+
+/**
+ * Block Messages.
+ *
+ * @param string $atts The string passed in by reference
+ *
+ * @return void
+ * @return
+ */
 function blockquotes( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 	'float' => '', /* left, right */
@@ -105,7 +113,7 @@ function blockquotes( $atts, $content = null ) {
 
 	$output .= '</blockquote>';
 
-	return $output;
+	return $output; // End of blockquotes()
 }
 
 add_shortcode( 'blockquote', 'blockquotes' );
