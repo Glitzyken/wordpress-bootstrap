@@ -102,13 +102,13 @@ function wp_bootstrap_footer_links() {
 }
 
 // this is the fallback for header menu.
-function wp_bootstrap_main_nav_fallback() { 
-  /* you can put a default here if you like */ 
+function wp_bootstrap_main_nav_fallback() {
+  /* you can put a default here if you like */
 }
 
 // this is the fallback for footer menu.
-function wp_bootstrap_footer_links_fallback() { 
-  /* you can put a default here if you like */ 
+function wp_bootstrap_footer_links_fallback() {
+  /* you can put a default here if you like */
 }
 
 // Shortcodes.
@@ -146,7 +146,7 @@ auto-cropped.
 To call a different size, simply change the text
 inside the thumbnail function.
 
-For example, to call the 300 x 300 sized image, 
+For example, to call the 300 x 300 sized image,
 we would use the function:
 <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
 for the 600 x 100 image:
@@ -206,27 +206,27 @@ function wp_bootstrap_register_sidebars() {
     'before_title' => '<h4 class="widgettitle">',
     'after_title' => '</h4>',
   ));
-    
-    
+
+
   /*
   To add more sidebars or widgetized areas, just copy
   and edit the above sidebar code. In order to call
   your new sidebar just use the following code:
-  
+
   Just change the name to whatever your new
   sidebar's id is, for example:
-  
+
   To call the sidebar in your template, you can just copy
   the sidebar.php file and rename it to your sidebar's name.
   So using the above example, it would be:
   sidebar-sidebar2.php
-  
+
   */
 } // don't remove this bracket!
 add_action( 'widgets_init', 'wp_bootstrap_register_sidebars' );
 
 /************* COMMENT LAYOUT *********************/
-		
+
 // Comment Layout
 function wp_bootstrap_comments( $comment, $args, $depth ) {
    $GLOBALS['comment'] = $comment; ?>
@@ -369,21 +369,21 @@ add_action( 'add_meta_boxes', 'wp_bootstrap_add_homepage_meta_box' );
 // Field Array.
 $prefix = 'custom_';
 $custom_meta_fields = array(
-    array(  
-        'label'=> 'Homepage tagline area',  
-        'desc'  => 'Displayed underneath page title. Only used on homepage template. HTML can be used.',  
-        'id'    => $prefix . 'tagline',  
+    array(
+        'label'=> 'Homepage tagline area',
+        'desc'  => 'Displayed underneath page title. Only used on homepage template. HTML can be used.',
+        'id'    => $prefix . 'tagline',
         'type'  => 'textarea',
     )
-);  
+);
 
-// The Homepage Meta Box Callback.  
-function wp_bootstrap_show_homepage_meta_box() {  
+// The Homepage Meta Box Callback.
+function wp_bootstrap_show_homepage_meta_box() {
   global $custom_meta_fields, $post;
 
   // Use nonce for verification.
   wp_nonce_field( basename( __FILE__ ), 'wpbs_nonce' );
-    
+
   // Begin the field table and loop.
   echo '<table class="form-table">';
 
@@ -391,23 +391,23 @@ function wp_bootstrap_show_homepage_meta_box() {
       // get value of this field if it exists for this post.
       $meta = get_post_meta($post->ID, $field['id'], true);
       // begin a table row with.
-      echo '<tr> 
-              <th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th> 
+      echo '<tr>
+              <th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th>
               <td>';
-              switch($field['type']) {  
-                  // text.  
-                  case 'text':  
-                      echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="60" /> 
-                          <br /><span class="description">'.$field['desc'].'</span>';  
+              switch($field['type']) {
+                  // text.
+                  case 'text':
+                      echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="60" />
+                          <br /><span class="description">'.$field['desc'].'</span>';
                   break;
-                  
-                  // textarea  
-                  case 'textarea':  
-                      echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="80" rows="4">'.$meta.'</textarea> 
-                          <br /><span class="description">'.$field['desc'].'</span>';  
-                  break;  
+
+                  // textarea
+                  case 'textarea':
+                      echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="80" rows="4">'.$meta.'</textarea>
+                          <br /><span class="description">'.$field['desc'].'</span>';
+                  break;
               } //end switch.
-      echo '</td></tr>';  
+      echo '</td></tr>';
   } // end foreach.
   echo '</table>'; // end table.
 }
@@ -418,7 +418,7 @@ function wp_bootstrap_save_homepage_meta( $post_id ) {
     global $custom_meta_fields;
 
     // verify nonce.
-    if ( !isset( $_POST['wpbs_nonce'] ) || !wp_verify_nonce($_POST['wpbs_nonce'], basename(__FILE__)) )  
+    if ( !isset( $_POST['wpbs_nonce'] ) || !wp_verify_nonce($_POST['wpbs_nonce'], basename(__FILE__)) )
         return $post_id;
 
     // check autosave.
@@ -486,7 +486,7 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 
 		$class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $object ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
-       
+
     $output .= $indent . '<li id="menu-item-' . $object->ID . '"' . $value . $class_names . '>';
 
     $attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) .'"' : '';
@@ -516,12 +516,12 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $object, $depth, $args );
   } // end start_el function.
-        
+
   function start_lvl( &$output, $depth = 0, $args = Array() ) {
     $indent = str_repeat( "\t", $depth );
     $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
   }
-  
+
   function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
     $id_field = $this->db_fields['id'];
     if ( is_object( $args[0] ) ) {
@@ -563,7 +563,7 @@ if ( ! function_exists( "wp_bootstrap_theme_js" ) ) {
   function wp_bootstrap_theme_js() {
 
     if ( !is_admin() ){
-      if ( is_singular() and comments_open() and ( get_option( 'thread_comments' ) == 1) ) 
+      if ( is_singular() and comments_open() and ( get_option( 'thread_comments' ) == 1) )
         wp_enqueue_script( 'comment-reply' );
     }
 
@@ -577,16 +577,16 @@ if ( ! function_exists( "wp_bootstrap_theme_js" ) ) {
       get_template_directory_uri() . '/library/dist/js/scripts.d1e3d952.min.js',
       array('bootstrap'),
       '1.2' );
-  
-    wp_register_script( 'modernizr', 
-      get_template_directory_uri() . '/bower_components/modernizer/modernizr.js', 
+
+    wp_register_script( 'modernizr',
+      get_template_directory_uri() . '/bower_components/modernizer/modernizr.js',
       array('jquery'),
       '1.2' );
-  
+
     wp_enqueue_script( 'bootstrap' );
     wp_enqueue_script( 'wpbs-js' );
     wp_enqueue_script( 'modernizr' );
-    
+
   }
 }
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_theme_js' );
@@ -673,13 +673,13 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
   if ( $start_page <= 0 ) {
     $start_page = 1;
   }
-    
+
   echo $before . '<ul class="pagination">' . "";
   if ( $paged > 1 ) {
     $first_page_text = '&laquo';
     echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="' . __( 'First','wpbootstrap' ) . '">' . $first_page_text . '</a></li>';
   }
- 
+
   $prevposts = get_previous_posts_link( __( '&larr; Previous','wpbootstrap' ) );
   if ( $prevposts ) { echo '<li>' . $prevposts  . '</li>'; }
   else { echo '<li class="disabled"><a href="#">' . __( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
