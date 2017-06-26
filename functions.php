@@ -436,14 +436,14 @@ function wp_bootstrap_save_homepage_meta( $post_id ) {
 		// loop through fields and save the data.
 		foreach ( $custom_meta_fields as $field ) {
 				$old = get_post_meta( $post_id, $field['id'], true );
-				$new = $_POST[ $field['id'] ];
+				$new = esc_html( $_POST[ $field['id'] ] );
 
 				if ($new && $new != $old) {
 							update_post_meta( $post_id, $field['id'], $new );
 				} elseif ( '' == $new && $old ) {
 						delete_post_meta( $post_id, $field['id'], $old );
 				}
-		} // end foreach.
+		} // End foreach.
 }
 add_action( 'save_post', 'wp_bootstrap_save_homepage_meta' );
 
@@ -455,22 +455,28 @@ function wp_bootstrap_add_class_attachment_link( $html ) {
 }
 add_filter( 'wp_get_attachment_link', 'wp_bootstrap_add_class_attachment_link', 10, 1 );
 
-// Add lead class to first paragraph.
-function wp_bootstrap_first_paragraph( $content ){
+/**
+ * Add lead class to first paragraph.
+ *
+ * @param string $content The string passed in by reference.
+ *
+ * @return preg_replace()
+ */
+function wp_bootstrap_first_paragraph( $content ) {
 		global $post;
 
 		// if we're on the homepage, don't add the lead class to the first paragraph of text
 		if( is_page_template( 'page-homepage.php' ) )
 				return $content;
 		else
-				return preg_replace('/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1);
+				return preg_replace( '/<p([^>]+)?>/', '<p$1 class="lead">', $content, 1 );
 }
 add_filter( 'the_content', 'wp_bootstrap_first_paragraph' );
 
-// Menu output mods.
-class Bootstrap_walker extends Walker_Nav_Menu{
+/** Menu output mods. **/
+class Bootstrap_walker extends Walker_Nav_Menu {
 
-	function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ){
+	function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {
 
 	 global $wp_query;
 	 $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -489,12 +495,12 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 
 		$output .= $indent . '<li id="menu-item-' . $object->ID . '"' . $value . $class_names . '>';
 
-		$attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) .'"' : '';
-		$attributes .= ! empty( $object->target )     ? ' target="' . esc_attr( $object->target     ) .'"' : '';
-		$attributes .= ! empty( $object->xfn )        ? ' rel="'    . esc_attr( $object->xfn        ) .'"' : '';
-		$attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
+		$attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) . '"' : '';
+		$attributes .= ! empty( $object->target )     ? ' target="' . esc_attr( $object->target     ) . '"' : '';
+		$attributes .= ! empty( $object->xfn )        ? ' rel="'    . esc_attr( $object->xfn        ) . '"' : '';
+		$attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) . '"' : '';
 
-		// if the item has children add these two attributes to the anchor tag
+		// if the item has children add these two attributes to the anchor tag.
 		if ( $args->has_children ) {
 			$attributes .= ' class="dropdown-toggle" data-toggle="dropdown"';
 		}
@@ -507,8 +513,7 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 		// if the item has children add the caret just before closing the anchor tag.
 		if ( $args->has_children ) {
 			$item_output .= '<b class="caret"></b></a>';
-		}
-		else {
+		} else {
 			$item_output .= '</a>';
 		}
 
@@ -520,7 +525,6 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 	/**
 	 * Start level dropdown menu function.
 	 */
-
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
 		$output .= "\n$indent<ul class=\"dropdown-menu\">\n";
@@ -528,12 +532,18 @@ class Bootstrap_walker extends Walker_Nav_Menu{
 
 	/**
 	 * Display element Function
+	 * @param string $element The string passed in by reference.
+	 * @param string $children_elements The string passed in by reference.
+	 * @param string $max_depth The string passed in by reference.
+	 * @param string $depth The string passed in by reference.
+	 * @param string $args The string passed in by reference.
+	 * @param string $output The string passed in by reference.
 	 */
 
-	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ){
+	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
-				$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
+				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 		}
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	} // end display_element function.
@@ -565,7 +575,7 @@ add_filter( 'nav_menu_css_class', 'wp_bootstrap_add_active_class', 10, 2 );
 /**
  * Enqueue styles.
  */
-if ( ! function_exists( "wp_bootstrap_theme_styles" ) ) {
+if ( ! function_exists( 'wp_bootstrap_theme_styles' ) ) {
 		function wp_bootstrap_theme_styles() {
 				// This is the compiled css file from LESS - this means you compile the LESS file locally and put it in the appropriate directory if you want to make any changes to the master bootstrap.css.
 				wp_register_style( 'wpbs', get_template_directory_uri() . '/library/dist/css/styles.f6413c85.min.css', array(), '1.0', 'all' );
@@ -580,6 +590,9 @@ add_action( 'wp_enqueue_scripts', 'wp_bootstrap_theme_styles' );
 
 // enqueue javascript.
 if ( ! function_exists( 'wp_bootstrap_theme_js' ) ) {
+	/**
+	 * Boostrrap js script.
+	 */
 	function wp_bootstrap_theme_js() {
 
 		if ( ! is_admin() ) {
@@ -617,7 +630,7 @@ add_action( 'wp_enqueue_scripts', 'wp_bootstrap_theme_js' );
  *
  * @param string $title The string passed in by reference.
  *
- * @param string $sep The string passed in by reference
+ * @param string $sep The string passed in by reference.
  *
  * @return $title
  */
@@ -666,7 +679,7 @@ function wp_bootstrap_related_posts() {
 				if ( $related_posts ) {
 					foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
 							<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-					<?php endforeach; } else { 
+					<?php endforeach; } else {
 						?>
 						<li class="no_related_post">No Related Posts Yet!</li>
 		<?php }
