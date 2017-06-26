@@ -665,7 +665,7 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	$numposts = $wp_query->found_posts;
 	$max_page = $wp_query->max_num_pages;
 	if ( $numposts <= $posts_per_page ) { return; }
-	if ( empty( $paged ) || $paged == 0 ) {
+	if ( 0 == empty( $paged ) || $paged ) {
 		$paged = 1;
 	}
 	$pages_to_show = 7;
@@ -691,12 +691,13 @@ function wp_bootstrap_page_navi( $before = '', $after = '' ) {
 	echo esc_url( $before ) . '<ul class="pagination">' . '';
 	if ( $paged > 1 ) {
 		$first_page_text = '&laquo';
-		echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="' . esc_html( 'First','wpbootstrap' ) . '">' . esc_html( $first_page_text ) . '</a></li>';
+		echo '<li class="prev"><a href="' . esc_url( get_pagenum_link() ) . '" title="' . esc_html( 'First','wpbootstrap' ) . '">' . esc_html( $first_page_text ) . '</a></li>';
 	}
 
 	$prevposts = get_previous_posts_link( __( '&larr; Previous','wpbootstrap' ) );
-	if ( $prevposts ) { echo '<li>' . esc_url( $prevposts ) . '</li>'; }
-	else { echo '<li class="disabled"><a href="#">' . esc_html( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
+	if ( $prevposts ) {
+		echo '<li>' . esc_url( $prevposts ) . '</li>'; } else { 
+			echo '<li class="disabled"><a href="#">' . esc_html( '&larr; Previous','wpbootstrap' ) . '</a></li>'; }
 
 	for ( $i = $start_page; $i <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
